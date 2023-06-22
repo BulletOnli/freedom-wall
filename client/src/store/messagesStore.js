@@ -1,13 +1,12 @@
 import { create } from "zustand";
+import axios from "axios";
 
 const messagesStore = (set, get) => ({
     messages: [],
     getMessages: async () => {
         try {
-            const response = await fetch("http://localhost:8000/messages");
-            const data = await response.json();
-
-            set({ messages: data });
+            const response = await axios("http://localhost:8000/messages");
+            set({ messages: response.data.reverse() });
         } catch (error) {
             console.log(error);
             alert(`${error}, Please restart the page.`);
@@ -15,16 +14,14 @@ const messagesStore = (set, get) => ({
     },
     createMessage: async (title, message) => {
         try {
-            const response = await fetch("http://localhost:8000/messages", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
+            const response = await axios.post(
+                "http://localhost:8000/messages",
+                {
                     title,
                     message,
                     date: new Date().toDateString(),
-                }),
-            });
-            const data = await response.json();
+                }
+            );
 
             get().getMessages();
         } catch (error) {
