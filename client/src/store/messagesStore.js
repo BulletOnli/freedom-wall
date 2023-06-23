@@ -5,7 +5,9 @@ const messagesStore = (set, get) => ({
     messages: [],
     getMessages: async () => {
         try {
-            const response = await axios("http://localhost:8000/messages");
+            const response = await axios(
+                "https://freedom-wall-production.up.railway.app/messages"
+            );
             set({ messages: response.data.reverse() });
         } catch (error) {
             console.log(error);
@@ -15,7 +17,7 @@ const messagesStore = (set, get) => ({
     createMessage: async (title, message) => {
         try {
             const response = await axios.post(
-                "http://localhost:8000/messages",
+                "https://freedom-wall-production.up.railway.app/messages",
                 {
                     title,
                     message,
