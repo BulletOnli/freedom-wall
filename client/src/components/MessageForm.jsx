@@ -34,10 +34,14 @@ const MessageForm = () => {
     };
 
     return (
-        <div className="relative z-50 w-[80vw] xl:w-[55%] flex flex-col 2xl:flex-row gap-4 p-6 mt-6 text-black bg-white rounded-lg shadow-xl">
+        <div className="relative z-50 w-[90vw] xl:w-[55%] flex flex-col 2xl:flex-row gap-0 lg:gap-4 p-3 lg:p-6 mt-4 text-black bg-white rounded-lg shadow-xl">
             <div className="w-full flex flex-col items-center justify-center ">
-                <img src="/logo.svg" alt="illustration" className="w-[300px]" />
-                <h2 className="text-xl font-semibold text-center">
+                <img
+                    src="/logo.svg"
+                    alt="illustration"
+                    className="w-[150px] lg:w-[300px]"
+                />
+                <h2 className="text-lg lg:text-xl font-semibold text-center">
                     Share your thoughts about me anonymously.
                 </h2>
             </div>
@@ -46,7 +50,7 @@ const MessageForm = () => {
                     <FormControl as="form" onSubmit={handleSubmit}>
                         <FormLabel>Title</FormLabel>
                         <Input
-                            mb={4}
+                            mb={2}
                             value={title}
                             placeholder="Title"
                             required
@@ -55,7 +59,7 @@ const MessageForm = () => {
                         />
                         <FormLabel>Message:</FormLabel>
                         <Textarea
-                            h={40}
+                            // h={{ base: 30, lg: 60 }}
                             resize="none"
                             placeholder="Your message..."
                             value={message}
@@ -64,7 +68,7 @@ const MessageForm = () => {
                         />
                         <Button
                             w="full"
-                            mt={4}
+                            mt={2}
                             type="submit"
                             colorScheme="facebook"
                             onClick={handleSubmit}
