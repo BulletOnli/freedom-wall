@@ -34,7 +34,7 @@ const MessageForm = () => {
     };
 
     return (
-        <div className="relative z-50 w-[90vw] xl:w-[55%] flex flex-col 2xl:flex-row gap-0 lg:gap-4 p-3 lg:p-6 mt-4 text-black bg-white rounded-lg shadow-xl">
+        <div className="relative z-50 w-[90vw] md:w-[50%] 2xl:w-[55%] flex flex-col 2xl:flex-row gap-0 lg:gap-4 p-3 lg:p-6 mt-4 text-black bg-white rounded-lg shadow-xl">
             <div className="w-full flex flex-col items-center justify-center ">
                 <img
                     src="/logo.svg"

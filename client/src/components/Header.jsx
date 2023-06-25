@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <div className="w-full flex flex-col items-center p-4 text-white ">
-            <div className="w-[80vw] 2xl:w-[50%]  flex flex-col justify-center items-center">
+            <div className="w-[80vw] 2xl:w-[50%] flex flex-col justify-center items-center">
                 <h1 className="text-3xl 2xl:text-5xl font-bold mb-2 2xl:mb-7">
                     Freedom Wall
                 </h1>
