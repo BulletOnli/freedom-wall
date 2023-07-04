@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const messagesSchema = mongoose.Schema(
     {
-        title: {
+        username: {
             type: String,
-            required: [true, "Please add a title"],
+            required: false,
         },
         message: {
             type: String,

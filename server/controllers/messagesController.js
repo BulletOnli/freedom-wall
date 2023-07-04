@@ -12,9 +12,9 @@ const getMessages = async (req, res) => {
 
 const createMessage = async (req, res) => {
     try {
-        const { title, message, date } = req.body;
+        const { username, message, date } = req.body;
         const newMessage = await Messages.create({
-            title,
+            username,
             message,
             date,
         });

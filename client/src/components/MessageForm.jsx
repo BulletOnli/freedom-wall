@@ -11,15 +11,34 @@ import { useMessagesStore } from "../store/messagesStore";
 
 const MessageForm = () => {
     const { createMessage } = useMessagesStore();
-    const [title, setTitle] = useState("");
+    const [username, setUsername] = useState("");
     const [message, setMessage] = useState("");
     const toast = useToast();
 
+    const randomUsername = [
+        "Kalabaw",
+        "Kabayo",
+        "Kambing",
+        "Oso",
+        "Toro",
+        "Pusa",
+        "Kalapati",
+        "Daga",
+    ];
+
     const handleSubmit = (e) => {
-        if (title && message) {
+        if (!username) {
+            setUsername(
+                randomUsername[
+                    Math.floor(Math.random() * randomUsername.length)
+                ]
+            );
+        }
+
+        if (username && message) {
             e.preventDefault();
-            createMessage(title, message);
-            setTitle("");
+            createMessage(username, message);
+            setUsername("");
             setMessage("");
             toast({
                 title: "Message Created!",
@@ -41,20 +60,19 @@ const MessageForm = () => {
                     alt="illustration"
                     className="w-[150px] lg:w-[300px]"
                 />
-                <h2 className="text-lg lg:text-xl font-semibold text-center">
+                <h2 className="text-md lg:text-xl font-semibold text-center">
                     Share your thoughts about me anonymously.
                 </h2>
             </div>
             <div className="w-full flex flex-col items-center justify-center ">
                 <div className="w-full flex flex-col items-center justify-center p-4">
                     <FormControl as="form" onSubmit={handleSubmit}>
-                        <FormLabel>Title</FormLabel>
+                        <FormLabel>Username (optional)</FormLabel>
                         <Input
                             mb={2}
-                            value={title}
-                            placeholder="Title"
-                            required
-                            onChange={(e) => setTitle(e.target.value)}
+                            value={username}
+                            placeholder="Username"
+                            onChange={(e) => setUsername(e.target.value)}
                             autoComplete="off"
                         />
                         <FormLabel>Message:</FormLabel>
