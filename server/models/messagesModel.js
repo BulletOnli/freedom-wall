@@ -4,7 +4,7 @@ const messagesSchema = mongoose.Schema(
     {
         username: {
             type: String,
-            required: false,
+            required: true,
         },
         message: {
             type: String,

@@ -22,7 +22,7 @@ const Homepage = () => {
                 {messages &&
                     messages.map((message) => (
                         <MessageBox
-                            title={message.title}
+                            username={message.username}
                             message={message.message}
                             date={message.date}
                             key={message._id}

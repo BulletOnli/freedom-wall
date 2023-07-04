@@ -15,27 +15,8 @@ const MessageForm = () => {
     const [message, setMessage] = useState("");
     const toast = useToast();
 
-    const randomUsername = [
-        "Kalabaw",
-        "Kabayo",
-        "Kambing",
-        "Oso",
-        "Toro",
-        "Pusa",
-        "Kalapati",
-        "Daga",
-    ];
-
     const handleSubmit = (e) => {
-        if (!username) {
-            setUsername(
-                randomUsername[
-                    Math.floor(Math.random() * randomUsername.length)
-                ]
-            );
-        }
-
-        if (username && message) {
+        if (message) {
             e.preventDefault();
             createMessage(username, message);
             setUsername("");

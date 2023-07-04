@@ -1,6 +1,17 @@
 import { create } from "zustand";
 import axios from "axios";
 
+const randomUsernames = [
+    "Kalabaw",
+    "Kabayo",
+    "Kambing",
+    "Oso",
+    "Toro",
+    "Pusa",
+    "Kalapati",
+    "Daga",
+];
+
 const messagesStore = (set, get) => ({
     messages: [],
     getMessages: async () => {
@@ -14,12 +25,17 @@ const messagesStore = (set, get) => ({
             alert(`${error}, Please restart the page.`);
         }
     },
-    createMessage: async (title, message) => {
+    createMessage: async (username, message) => {
+        username = username
+            ? username
+            : randomUsernames[
+                  Math.floor(Math.random() * randomUsernames.length)
+              ];
         try {
             const response = await axios.post(
                 "https://freedom-wall-production.up.railway.app/messages",
                 {
-                    title,
+                    username,
                     message,
                     date: new Date().toDateString(),
                 }
